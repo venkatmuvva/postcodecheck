@@ -1,0 +1,46 @@
+// Place all the styles related to the Postcodes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.postcodeInput {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 2px solid #73AD21;
+  transform: translate(-50%, -50%);
+  padding: 25px;
+}
+
+form label{
+  font-weight:bold;
+}
+
+input[type=text] {
+  padding:10px;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+  border-radius:10px;
+}
+
+.button {
+  /* remove default behavior */
+  appearance:none;
+  -webkit-appearance:none;
+
+  /* usual styles */
+  padding:10px;
+  border:none;
+  background-color:#3F51B5;
+  color:#fff;
+  font-weight:600;
+  border-radius:5px;
+
+}
+
+.errorMessage {
+  color: red;
+}
+
+.successMessage {
+  color: green;
+}
