@@ -4,15 +4,16 @@ module PostcodesHelper
     if postcode.blank?
       false
     else
-      begin
+        postcode = postcode.gsub(/[ ]/, "")
         uri = URI(EXTERNAL_API_URL + postcode)
         response = Net::HTTP.get(uri) # => String
         response_json = JSON.parse(response)
-        response_json['status'] == 200 ? true : false
-      rescue Exception
-        console.log("Error occurred while invoking the external API" + Exception.to_s)
-        false
-      end
+        status =  response_json['status']
+        result = response_json['result']
+        lsoa = result['lsoa'] unless result.blank?
+        return false if status.blank? || lsoa.blank?
+        lsoa = lsoa.downcase  unless lsoa.blank?
+        ((status == 200)  && lsoa.start_with?('southwark', 'lambeth')) ? true : false
     end
   end
 

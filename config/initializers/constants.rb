@@ -10,3 +10,5 @@ VALID_POSTCODES_INTERNAL_LIST = ["GU345YU",
                                  "LN139QL",
                                  "SO192DR",
                                  "SP9 7EP"]
+
+ACCEPTED_LSOA_LIST = ['southwark', 'lambeth']

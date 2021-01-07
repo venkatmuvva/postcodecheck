@@ -17,11 +17,15 @@ $(function() {
                 },
                 success: function (response) {
                     $('#successMessage').show();
-                    $('#successMessage').text("Entered postcode is valid");
+                    $('#successMessage').text("Entered postcode is accepted");
                 },
                 error: function (response) {
                     $('#errorMessage').show();
-                    $('#errorMessage').text("Invalid postcode");
+                    if (response.status ==  404) {
+                        $('#errorMessage').text("Postcode is not accepted");
+                    } else {
+                        $('#errorMessage').text("Service unavailable");
+                    }
                 }
             })
         }
